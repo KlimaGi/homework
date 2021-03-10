@@ -1,0 +1,94 @@
+$font-stack: "Public Sans", sans-serif;
+$font-weight-hard: 700;
+$font-weight-light: 100;
+$font-size: 1rem;
+$padding: 0.8rem;
+$width: 85%;
+$white: rgb(255, 255, 255);
+$orange-light: #ff690f;
+$orange-dark: #e93a1b;
+$black: rgba(3, 3, 3, 0.699);
+$grey: rgb(165, 165, 165);
+
+@mixin centerer {
+  position: absolute;
+  transform: translate(-50%, 0);
+}
+
+body {
+  font-family: $font-stack;
+  font-size: $font-size;
+  cursor: pointer;
+  background-color: powderblue;
+  //background-image: ;
+}
+
+.parent-div {
+  position: relative;
+}
+header {
+  background: linear-gradient(to right, $orange-light, $orange-dark);
+  width: $width;
+  height: 3rem;
+  padding: 1.5rem;
+  @include centerer;
+  left: 50%;
+}
+input {
+  font-family: $font-stack;
+  font-weight: $font-weight-hard;
+  font-size: $font-size;
+  opacity: 0.5;
+  padding: $padding;
+  width: $width - 10%;
+  color: $black;
+  @include centerer;
+  left: 50%;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+li {
+  list-style: none;
+}
+.results {
+  position: absolute;
+  transform: translate(-50%, 10%);
+  top: 30%;
+  left: 50%;
+  width: 65%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 2px 2px 3px 0 $grey, -2px 1px 3px 1px $grey;
+  padding-bottom: $padding;
+  background-color: $white;
+  .one-movie {
+    padding: $padding;
+    width: $width;
+  }
+  .title {
+    font-weight: $font-weight-hard;
+    color: $black;
+  }
+}
+button {
+  padding: $padding;
+  font-size: $font-size;
+  color: $orange-dark;
+  @include centerer;
+  left: 90%;
+  border: none;
+}
+.other-content {
+  @include centerer;
+  top: -50%;
+  left: 50%;
+  background-color: $white;
+  width: $width;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 1.5rem;
+  z-index: -1;
+}

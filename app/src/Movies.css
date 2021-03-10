@@ -1,0 +1,89 @@
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: powderblue;
+}
+
+.parent-div {
+  position: relative;
+}
+
+header {
+  background: linear-gradient(to right, #ff690f, #e93a1b);
+  width: 85%;
+  height: 3rem;
+  padding: 1.5rem;
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+}
+
+input {
+  font-family: "Public Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  opacity: 0.5;
+  padding: 0.8rem;
+  width: 75%;
+  color: rgba(3, 3, 3, 0.699);
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+.results {
+  position: absolute;
+  transform: translate(-50%, 10%);
+  top: 30%;
+  left: 50%;
+  width: 65%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 2px 2px 3px 0 #a5a5a5, -2px 1px 3px 1px #a5a5a5;
+  padding-bottom: 0.8rem;
+  background-color: white;
+}
+
+.results .one-movie {
+  padding: 0.8rem;
+  width: 85%;
+}
+
+.results .title {
+  font-weight: 700;
+  color: rgba(3, 3, 3, 0.699);
+}
+
+button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #e93a1b;
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 90%;
+  border: none;
+}
+
+.other-content {
+  position: absolute;
+  transform: translate(-50%, 0);
+  top: -50%;
+  left: 50%;
+  background-color: white;
+  width: 85%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 1.5rem;
+  z-index: -1;
+}
+/*# sourceMappingURL=Movies.css.map */

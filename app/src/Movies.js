@@ -5,7 +5,6 @@ class Movies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // input: "",
       showResults: false,
       movies: [],
     };
@@ -32,18 +31,23 @@ class Movies extends React.Component {
         showResults: false,
       });
     }
-
-    // this.setState({
-    //   input: event.target.value,
-    // });
   }
 
   render() {
     return (
-      <div>
-        <input value={this.state.input} onChange={this.handleChange} />
+      <div className="parent-div">
+        <header>
+          <input
+            value={this.state.input}
+            onChange={this.handleChange}
+            placeholder="Enter movie name"
+          />
 
-        <button type="submit">Submit!</button>
+          <button type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </header>
+
         {this.state.showResults && (
           <ul className="results">
             {this.state.movies.map((movie) => (
@@ -55,6 +59,7 @@ class Movies extends React.Component {
             ))}
           </ul>
         )}
+        <div className="other-content"></div>
       </div>
     );
   }
@@ -62,8 +67,13 @@ class Movies extends React.Component {
 
 function Movie(props) {
   return (
-    <li>
-      {props.title} {props.rating} {props.year}
+    <li className="one-movie">
+      <ul>
+        <li className="title">{props.title}</li>
+        <li>
+          {props.rating} Rating, {props.year.slice(0, 4)}
+        </li>
+      </ul>
     </li>
   );
 }
