@@ -20,7 +20,8 @@ body {
   font-size: $font-size;
   cursor: pointer;
   background-color: powderblue;
-  //background-image: ;
+  background: no-repeat
+    url(./images-app/kaushik-panchal-0juC5JIhPks-unsplash.jpg);
 }
 
 .parent-div {
@@ -40,16 +41,25 @@ input {
   font-size: $font-size;
   opacity: 0.5;
   padding: $padding;
-  width: $width - 10%;
+  padding-left: 4rem;
+  width: $width - 9%;
   color: $black;
   @include centerer;
-  left: 50%;
+  left: 48%;
   border: none;
   &:focus {
     outline: none;
   }
 }
-
+svg {
+  //color: $white;
+  color: $black;
+  //opacity: 0.5;
+  width: 2rem;
+  position: absolute;
+  left: 7.5%;
+  transform: translate(20%, -45%);
+}
 li {
   list-style: none;
 }
