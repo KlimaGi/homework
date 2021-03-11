@@ -24,10 +24,10 @@ body {
     url(./images-app/kaushik-panchal-0juC5JIhPks-unsplash.jpg);
 }
 
-.parent-div {
-  position: relative;
-}
 header {
+  display: flex;
+  justify-content: center;
+  position: relative;
   background: linear-gradient(to right, $orange-light, $orange-dark);
   width: $width;
   height: 3rem;
@@ -39,36 +39,42 @@ input {
   font-family: $font-stack;
   font-weight: $font-weight-hard;
   font-size: $font-size;
-  opacity: 0.5;
+  background-color: rgba(255, 255, 255, 0.3);
   padding: $padding;
+  margin: 1.5px;
   padding-left: 4rem;
   width: $width - 9%;
-  color: $black;
-  @include centerer;
-  left: 48%;
+  color: $white;
   border: none;
   &:focus {
     outline: none;
   }
 }
-svg {
-  //color: $white;
-  color: $black;
-  //opacity: 0.5;
+::placeholder {
+  color: $white;
+}
+
+header svg {
+  fill: $white;
   width: 2rem;
   position: absolute;
   left: 7.5%;
   transform: translate(20%, -45%);
 }
-li {
-  list-style: none;
+button {
+  padding: $padding;
+  font-size: $font-size;
+  color: $orange-dark;
+  border: none;
+  margin: 1.5px;
 }
 .results {
+  // is .parent-div child
+
   position: absolute;
-  transform: translate(-50%, 10%);
-  top: 30%;
+  transform: translate(-50%, 11%);
   left: 50%;
-  width: 65%;
+  width: 64%;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: 2px 2px 3px 0 $grey, -2px 1px 3px 1px $grey;
@@ -82,18 +88,13 @@ li {
     font-weight: $font-weight-hard;
     color: $black;
   }
+  li {
+    list-style: none;
+  }
 }
-button {
-  padding: $padding;
-  font-size: $font-size;
-  color: $orange-dark;
-  @include centerer;
-  left: 90%;
-  border: none;
-}
+
 .other-content {
   @include centerer;
-  top: -50%;
   left: 50%;
   background-color: $white;
   width: $width;
