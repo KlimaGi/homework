@@ -7,10 +7,24 @@ class Movies extends React.Component {
     this.state = {
       showResults: false,
       movies: [],
+      selectedMovie: "",
     };
     this.handleChange = this.handleChange.bind(this);
+    this.selectMovie = this.selectMovie.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
+
+  handleFocus() {
+    this.setState({
+      selectedMovie: "",
+    });
+  }
+
   handleChange(event) {
+    this.setState({
+      selectedMovie: event.target.value,
+    });
+
     if (event.target.value.length >= 3) {
       fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=1a6cc1081a2efc60749fdc8435ec64d6&language=en-US&query=${event.target.value}`
@@ -33,6 +47,14 @@ class Movies extends React.Component {
     }
   }
 
+  selectMovie(movieTitle) {
+    this.setState({
+      selectedMovie: movieTitle,
+      showResults: false,
+      movies: [],
+    });
+  }
+
   render() {
     return (
       <div className="parent-div">
@@ -48,7 +70,7 @@ class Movies extends React.Component {
             width="512px"
             height="512px"
             viewBox="0 0 512 512"
-            enable-background="new 0 0 512 512"
+            enableBackground="new 0 0 512 512"
           >
             <path
               d="M352,255.5l-192,96v-192L352,255.5z M512,31.5v448H0v-448H512z M320,95.5h64v-32h-64V95.5z M224,95.5h64v-32h-64V95.5z
@@ -57,13 +79,14 @@ class Movies extends React.Component {
             />
           </svg>
           <input
-            value={this.state.input}
+            value={this.state.selectedMovie}
             onChange={this.handleChange}
+            onFocus={this.handleFocus}
             placeholder="Enter movie name"
           />
 
           <button type="submit">
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
           </button>
         </header>
 
@@ -74,6 +97,7 @@ class Movies extends React.Component {
                 title={movie.title}
                 rating={movie.vote_average}
                 year={movie.release_date}
+                onClickMovie={this.selectMovie}
               />
             ))}
           </ul>
@@ -86,7 +110,12 @@ class Movies extends React.Component {
 
 function Movie(props) {
   return (
-    <li className="one-movie">
+    <li
+      className="one-movie"
+      onClick={() => {
+        props.onClickMovie(props.title);
+      }}
+    >
       <ul>
         <li className="title">{props.title}</li>
         <li>
@@ -97,9 +126,4 @@ function Movie(props) {
   );
 }
 
-// function ChoosenMovie(props){
-//   return (
-
-//   )
-// }
 export default Movies;
