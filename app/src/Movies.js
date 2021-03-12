@@ -39,6 +39,7 @@ class Movies extends React.Component {
         <header>
           {/* <svg viewBox="0 0 20 20"></svg> */}
           <svg
+            className="movie-svg"
             version="1.1"
             id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +97,9 @@ function Movie(props) {
   );
 }
 
+// function ChoosenMovie(props){
+//   return (
+
+//   )
+// }
 export default Movies;
-// <svg viewBox="0 0 20 20" width="1rem">
-//<path></path>
-//</svg>

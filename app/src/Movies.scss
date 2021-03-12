@@ -9,6 +9,7 @@ $orange-light: #ff690f;
 $orange-dark: #e93a1b;
 $black: rgba(3, 3, 3, 0.699);
 $grey: rgb(165, 165, 165);
+$background-color: rgba(255, 255, 255, 0.3);
 
 @mixin centerer {
   position: absolute;
@@ -39,10 +40,10 @@ input {
   font-family: $font-stack;
   font-weight: $font-weight-hard;
   font-size: $font-size;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: $background-color;
   padding: $padding;
   margin: 1.5px;
-  padding-left: 4rem;
+  padding-left: 4.5rem;
   width: $width - 9%;
   color: $white;
   border: none;
@@ -54,23 +55,23 @@ input {
   color: $white;
 }
 
-header svg {
+.movie-svg {
   fill: $white;
   width: 2rem;
   position: absolute;
-  left: 7.5%;
-  transform: translate(20%, -45%);
+  left: 9%;
+  transform: translate(10%, 30%);
+  height: 1.8rem;
 }
 button {
   padding: $padding;
-  font-size: $font-size;
-  color: $orange-dark;
+  font-size: 1.3rem;
+  color: $orange-light;
   border: none;
   margin: 1.5px;
 }
 .results {
-  // is .parent-div child
-
+  // is .parent-div's child
   position: absolute;
   transform: translate(-50%, 11%);
   left: 50%;
