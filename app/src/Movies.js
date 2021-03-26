@@ -8,10 +8,12 @@ class Movies extends React.Component {
       showResults: false,
       movies: [],
       selectedMovie: "",
+      uniqKey: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.selectMovie = this.selectMovie.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
+    this.uniqKeycreate = this.uniqKeycreate.bind(this);
   }
 
   handleFocus() {
@@ -53,6 +55,15 @@ class Movies extends React.Component {
       showResults: false,
       movies: [],
     });
+  }
+
+  uniqKeycreate(movies) {
+    for (var i = 0; i < movies.length; i++) {
+      var keyName = "key" + i;
+      this.setState({
+        uniqKey: keyName,
+      });
+    }
   }
 
   render() {
@@ -111,17 +122,18 @@ class Movies extends React.Component {
 function Movie(props) {
   return (
     <li
+      key="{}"
       className="one-movie"
       onClick={() => {
         props.onClickMovie(props.title);
       }}
     >
-      <ul>
-        <li className="title">{props.title}</li>
-        <li>
+      <div>
+        <div className="title">{props.title}</div>
+        <div>
           {props.rating} Rating, {props.year.slice(0, 4)}
-        </li>
-      </ul>
+        </div>
+      </div>
     </li>
   );
 }
