@@ -70,7 +70,6 @@ class Movies extends React.Component {
     return (
       <div className="parent-div">
         <header>
-          {/* <svg viewBox="0 0 20 20"></svg> */}
           <svg
             className="movie-svg"
             version="1.1"
