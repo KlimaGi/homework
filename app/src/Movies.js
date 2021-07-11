@@ -8,12 +8,10 @@ class Movies extends React.Component {
       showResults: false,
       movies: [],
       selectedMovie: "",
-      uniqKey: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.selectMovie = this.selectMovie.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
-    this.uniqKeycreate = this.uniqKeycreate.bind(this);
   }
 
   handleFocus() {
@@ -57,15 +55,6 @@ class Movies extends React.Component {
     });
   }
 
-  uniqKeycreate(movies) {
-    for (var i = 0; i < movies.length; i++) {
-      var keyName = "key" + i;
-      this.setState({
-        uniqKey: keyName,
-      });
-    }
-  }
-
   render() {
     return (
       <div className="parent-div">
@@ -102,12 +91,13 @@ class Movies extends React.Component {
 
         {this.state.showResults && (
           <ul className="results">
-            {this.state.movies.map((movie) => (
+            {this.state.movies.map((movie, index) => (
               <Movie
                 title={movie.title}
                 rating={movie.vote_average}
                 year={movie.release_date}
                 onClickMovie={this.selectMovie}
+                indexKey={index}
               />
             ))}
           </ul>
@@ -121,7 +111,7 @@ class Movies extends React.Component {
 function Movie(props) {
   return (
     <li
-      key="{}"
+      key={props.indexKey}
       className="one-movie"
       onClick={() => {
         props.onClickMovie(props.title);
